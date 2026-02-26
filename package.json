@@ -1,0 +1,7 @@
+{
+  "name": "dsapi",
+  "version": "1.0.0",
+  "description": "Repo with APIs that are used in other projects.",
+  "type": "module",
+  "private": true
+}
