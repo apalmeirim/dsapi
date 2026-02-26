@@ -40,7 +40,7 @@ export default async function handler(req, res) {
       `?q=${encodeURIComponent(query)}` +
       "&orderBy=createdTime desc" +
       "&pageSize=3" +
-      "&fields=files(id,name,createdTime,webViewLink)";
+      "&fields=files(id,name,createdTime,webViewLink,thumbnailLink)";
 
     const filesRes = await fetch(filesUrl, {
       headers: { Authorization: `Bearer ${accessToken}` },
@@ -52,7 +52,7 @@ export default async function handler(req, res) {
       name: file.name,
       createdTime: file.createdTime,
       viewLink: file.webViewLink,
-      imageUrl: `https://drive.google.com/uc?export=view&id=${file.id}`,
+      imageUrl: `https://drive.google.com/thumbnail?id=${file.id}&sz=w1200`,
     }));
 
     res.status(200).json({ files });
